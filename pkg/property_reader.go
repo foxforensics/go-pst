@@ -19,11 +19,12 @@ package pst
 import (
 	"encoding/binary"
 	"fmt"
-	"github.com/tinylib/msgp/msgp"
 	"math"
+	"strings"
 	"time"
 
 	"github.com/rotisserie/eris"
+	"github.com/tinylib/msgp/msgp"
 	"golang.org/x/text/encoding/ianaindex"
 	"golang.org/x/text/encoding/unicode"
 )
@@ -180,7 +181,13 @@ func (propertyReader *PropertyReader) GetString() (string, error) {
 		return "", eris.Wrap(err, "failed to read data")
 	}
 
-	return propertyReader.DecodeString(data)
+	s, err := propertyReader.DecodeString(data)
+	if err != nil {
+		return s, err
+	}
+
+	s, _ = strings.CutSuffix(s, "\x00")
+	return s, nil
 }
 
 // GetString8 returns the string using the external encoding.

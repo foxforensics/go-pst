@@ -254,7 +254,7 @@ func (file *File) GetMessage(identifier Identifier) (*Message, error) {
 			} else if messageClass == "IPM.SkypeTeams.Message" {
 				messageProperties = &properties.TeamMessage{}
 			} else {
-				fmt.Printf("Unmapped message class \"%s\", falling back to properties.Message...\n", messageClass)
+				fmt.Printf("Unmapped message class %q, falling back to properties.Message...\n", messageClass)
 				messageProperties = &properties.Message{}
 			}
 		}
