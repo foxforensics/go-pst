@@ -18,9 +18,10 @@ package pst
 
 import (
 	"encoding/binary"
+	"io"
+
 	"github.com/pkg/errors"
 	"github.com/rotisserie/eris"
-	"io"
 )
 
 // GetNodeBTreeOffset returns the file offset to the node b-tree.
@@ -153,9 +154,9 @@ func BTreeNodeLessFunc(a BTreeNode, b BTreeNode) bool {
 		// We don't return the first identifier because there may be two or more nodes with
 		// the same identifier, so prefer leaf nodes (which there is always only one of).
 		return a.NodeLevel < b.NodeLevel
-	} else {
-		return a.Identifier < b.Identifier
 	}
+
+	return a.Identifier < b.Identifier
 }
 
 // GetBTreeNodeRawEntries returns the raw b-tree node entries in bytes.

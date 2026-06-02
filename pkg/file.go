@@ -19,9 +19,10 @@ package pst
 import (
 	"bytes"
 	"encoding/binary"
+	"io"
+
 	_ "github.com/emersion/go-message/charset"
 	"github.com/rotisserie/eris"
-	"io"
 )
 
 // File represents a PST file.
@@ -106,10 +107,6 @@ func NewFromReaderWithBTrees(reader Reader, nodeBTree BTreeStore, blockBTree BTr
 		}
 
 		pstFile.WalkAndCreateBTree(nodeBTreeOffset, BTreeTypeNode, pstFile.NodeBTree)
-
-		if err != nil {
-			return nil, err
-		}
 	}
 
 	if pstFile.BlockBTree.Len() == 0 {
@@ -120,10 +117,6 @@ func NewFromReaderWithBTrees(reader Reader, nodeBTree BTreeStore, blockBTree BTr
 		}
 
 		pstFile.WalkAndCreateBTree(blockBTreeOffset, BTreeTypeBlock, pstFile.BlockBTree)
-
-		if err != nil {
-			return nil, err
-		}
 	}
 
 	nameToIDMap, err := pstFile.GetNameToIDMap()
@@ -175,9 +168,9 @@ func (file *File) GetContentType() (ContentType, error) {
 		return ContentTypeOST, nil
 	} else if bytes.Equal(contentType, []byte("AB")) {
 		return ContentTypePAB, nil
-	} else {
-		return 0, ErrContentTypeUnsupported
 	}
+
+	return 0, ErrContentTypeUnsupported
 }
 
 // FormatType represents a Unicode or ANSI format type.

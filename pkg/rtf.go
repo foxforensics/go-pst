@@ -19,6 +19,7 @@ package pst
 import (
 	"bytes"
 	"encoding/binary"
+
 	"github.com/pkg/errors"
 	"golang.org/x/text/encoding/ianaindex"
 )
@@ -116,7 +117,7 @@ func (rtfDecoder *RTFDecoder) Decode(data []byte) (string, error) {
 	} else if bytes.Equal(compressionSignature, CompressionTypeUncompressed) {
 		// Uncompressed
 		return string(data[16 : len(data)-16]), nil
-	} else {
-		return "", errors.New("unknown compression signature")
 	}
+
+	return "", errors.New("unknown compression signature")
 }

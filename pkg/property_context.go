@@ -21,10 +21,11 @@ import (
 	_ "embed"
 	"encoding/binary"
 	"encoding/csv"
-	"github.com/rotisserie/eris"
-	"github.com/tinylib/msgp/msgp"
 	"io"
 	"strings"
+
+	"github.com/rotisserie/eris"
+	"github.com/tinylib/msgp/msgp"
 )
 
 // PropertyContext represents the property context.

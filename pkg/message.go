@@ -22,8 +22,8 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/rotisserie/eris"
-	"github.com/theta-lake/go-pst/v6/pkg/properties"
 	"github.com/tinylib/msgp/msgp"
+	"go.foxforensics.dev/go-pst/v6/pkg/properties"
 )
 
 // Message represents a message.

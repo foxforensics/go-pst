@@ -19,7 +19,7 @@ package pst
 import (
 	"io"
 
-	"github.com/theta-lake/go-pst/v6/pkg/properties"
+	"go.foxforensics.dev/go-pst/v6/pkg/properties"
 
 	"github.com/rotisserie/eris"
 )
@@ -205,6 +205,10 @@ func (file *File) GetAttachment(messageIdentifier Identifier) (*Attachment, erro
 	}
 
 	propertyContext, err := file.GetPropertyContext(attachmentsHeapOnNode)
+
+	if err != nil {
+		return nil, eris.Wrap(err, "failed to get property context")
+	}
 
 	attachment := &Attachment{
 		Identifier:       messageIdentifier,

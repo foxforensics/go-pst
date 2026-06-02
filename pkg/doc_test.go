@@ -23,8 +23,8 @@ import (
 	"time"
 
 	"github.com/rotisserie/eris"
-	"github.com/theta-lake/go-pst/v6/pkg"
-	"github.com/theta-lake/go-pst/v6/pkg/properties"
+	pst "go.foxforensics.dev/go-pst/v6/pkg"
+	"go.foxforensics.dev/go-pst/v6/pkg/properties"
 	"golang.org/x/text/encoding"
 
 	charsets "github.com/emersion/go-message/charset"
@@ -39,7 +39,7 @@ func TestExample(t *testing.T) {
 
 	fmt.Println("Initializing...")
 
-	reader, err := os.Open("../data/enron.pst")
+	reader, err := os.Open("../testdata/enron.pst")
 
 	if err != nil {
 		panic(fmt.Sprintf("Failed to open PST file: %+v\n", err))

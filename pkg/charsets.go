@@ -17,11 +17,12 @@
 package pst
 
 import (
+	"mime"
+
 	charsets "github.com/emersion/go-message/charset"
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/encoding/ianaindex"
-	"mime"
 )
 
 // Extended charsets thanks to: https://github.com/thda/tds/blob/master/charsets.go
