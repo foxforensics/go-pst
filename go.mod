@@ -1,4 +1,4 @@
-module go.foxforensics.dev/go-pst/v6
+module go.foxforensics.eu/go-pst/v6
 
 go 1.26
 
@@ -9,13 +9,13 @@ require (
 	github.com/rotisserie/eris v0.5.4
 	github.com/tidwall/btree v1.8.1
 	github.com/tinylib/msgp v1.6.4
-	golang.org/x/net v0.55.0
-	golang.org/x/text v0.37.0
+	golang.org/x/net v0.56.0
+	golang.org/x/text v0.38.0
 	google.golang.org/protobuf v1.36.11
 )
 
 require (
 	github.com/libp2p/go-sockaddr v0.2.0 // indirect
 	github.com/philhofer/fwd v1.2.0 // indirect
-	golang.org/x/sys v0.45.0 // indirect
+	golang.org/x/sys v0.46.0 // indirect
 )

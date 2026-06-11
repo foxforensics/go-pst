@@ -19,7 +19,7 @@ package pst
 import (
 	"io"
 
-	"go.foxforensics.dev/go-pst/v6/pkg/properties"
+	"go.foxforensics.eu/go-pst/v6/pst/properties"
 
 	"github.com/rotisserie/eris"
 )

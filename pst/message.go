@@ -23,7 +23,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/rotisserie/eris"
 	"github.com/tinylib/msgp/msgp"
-	"go.foxforensics.dev/go-pst/v6/pkg/properties"
+	"go.foxforensics.eu/go-pst/v6/pst/properties"
 )
 
 // Message represents a message.
