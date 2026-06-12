@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"github.com/rotisserie/eris"
-	pst "go.foxforensics.eu/go-pst/v6/pst"
+	"go.foxforensics.eu/go-pst/v6/pst"
 	"go.foxforensics.eu/go-pst/v6/pst/properties"
 	"golang.org/x/text/encoding"
 
